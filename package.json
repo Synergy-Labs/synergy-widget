@@ -41,7 +41,8 @@
     "deduplicate": "yarn-deduplicate --strategy=highest",
     "lint": "eslint .",
     "test": "jest src",
-    "test:e2e": "jest e2e"
+    "test:e2e": "jest e2e",
+    "semantic-release": "semantic-release"
   },
   "browserslist": {
     "production": [
@@ -205,7 +206,7 @@
     "rollup-plugin-node-externals": "^3.1.2",
     "rollup-plugin-scss": "^3.0.0",
     "sass": "^1.45.1",
-    "semantic-release": "^19.0.3",
+    "semantic-release": "^22.0.8",
     "typechain": "^5.0.0",
     "typescript": "^4.4.3",
     "wcag-contrast": "^3.0.0",
@@ -214,5 +215,6 @@
   },
   "resolutions": {
     "decode-uri-component": "^0.2.2"
-  }
+  },
+  "version": "0.0.0-development"
 }
