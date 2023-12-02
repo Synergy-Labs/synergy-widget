@@ -1,8 +1,8 @@
 {
-  "name": "@uniswap/widgets",
-  "description": "Uniswap Interface",
-  "homepage": "https://github.com/Uniswap/widgets#readme",
-  "repository": "https://github.com/Uniswap/widgets",
+  "name": "synergyswap",
+  "description": "synergyAI uniswap widget",
+  "homepage": "https://github.com/Synergy-Labs/synergy-widget",
+  "repository": "https://github.com/Synergy-Labs/synergy-widget",
   "files": [
     "dist"
   ],
