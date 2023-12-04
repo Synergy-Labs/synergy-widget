@@ -23,7 +23,7 @@ jobs:
       #   if: success()
       #   env:
       #     JSON_RPC_PROVIDER: ${{ secrets.JSON_RPC_PROVIDER }}
-
+      - run: echo //npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }} > ~/.npmrc
       - run: yarn release
         if: success()
         env:
