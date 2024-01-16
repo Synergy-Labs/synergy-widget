@@ -18,9 +18,13 @@ export default function ConnectWalletButton() {
   }, [onConnectWalletClick])
   return (
     <>
-      <ActionButton color="accentSoft" onClick={onClick} data-testid="connect-wallet">
-        <Trans>Connect wallet</Trans>
-      </ActionButton>
+      <div style={{ marginTop: '50px' }}>
+        <ActionButton color="accentSoft" onClick={onClick} data-testid="connect-wallet">
+          <Trans>
+            <span style={{ fontWeight: 400 }}>Connect wallet</span>
+          </Trans>
+        </ActionButton>
+      </div>
       {open && (
         <Dialog color="dialog" onClose={onClose}>
           <ConnectWalletDialog />

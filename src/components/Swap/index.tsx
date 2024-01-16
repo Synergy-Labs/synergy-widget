@@ -1,4 +1,3 @@
-import { Trans } from '@lingui/macro'
 import BrandedFooter from 'components/BrandedFooter'
 import Wallet from 'components/ConnectWallet'
 import { SwapInfoProvider } from 'hooks/swap/useSwapInfo'
@@ -14,7 +13,6 @@ import { useMemo, useState } from 'react'
 import { displayTxHashAtom } from 'state/swap'
 
 import Dialog from '../Dialog'
-import Header from '../Header'
 import { PopoverBoundaryProvider } from '../Popover'
 import Input from './Input'
 import Output from './Output'
@@ -47,18 +45,20 @@ export default function Swap(props: SwapProps) {
   const displayTx = useMemo(() => displayTxHash && pendingTxs[displayTxHash], [displayTxHash, pendingTxs])
 
   return (
-    <>
+    <div style={{ minHeight: '25rem' }}>
       <SwapInfoProvider>
-        <Header title={<Trans>Swap</Trans>}>
+        <div style={{ width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
           <Wallet disabled={props.hideConnectionUI} />
           <Settings />
-        </Header>
+        </div>
         <div ref={setWrapper}>
           <PopoverBoundaryProvider value={wrapper}>
             <Input />
             <ReverseButton />
             <Output />
-            <Toolbar />
+            <div style={{height: '100%',}}>
+              <Toolbar />
+            </div>
             {useBrandedFooter() && <BrandedFooter />}
           </PopoverBoundaryProvider>
         </div>
@@ -68,6 +68,6 @@ export default function Swap(props: SwapProps) {
           <StatusDialog tx={displayTx} onClose={() => setDisplayTxHash()} />
         </Dialog>
       )}
-    </>
+    </div>
   )
 }

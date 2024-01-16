@@ -8,19 +8,21 @@ import Row, { RowProps } from './Row'
 import Tooltip from './Tooltip'
 
 const StyledButton = styled(Button)<{ shouldUseDisabledColor?: boolean; narrow?: boolean }>`
-  border-radius: ${({ theme, narrow }) => (narrow ? theme.borderRadius.small : theme.borderRadius.medium)}rem;
+  border-color: rgba(11, 224, 253);
+  border-radius: 8px;
+  border-style: solid;
   flex-grow: 1;
-  max-height: ${({ narrow }) => (narrow ? '2.5rem' : '3.5rem')};
+  max-height: ${({ narrow }) => (narrow ? '45px' : '45px')};
   transition: background-color ${AnimationSpeed.Medium} ease-out, border-radius ${AnimationSpeed.Medium} ease-out,
     flex-grow ${AnimationSpeed.Medium} ease-out;
   ${({ theme, disabled, shouldUseDisabledColor }) =>
     disabled &&
     (shouldUseDisabledColor
       ? css`
-          background-color: ${theme.interactive};
+          background-color: rgba(11, 224, 253, 0.2);
         `
       : css`
-          opacity: 0.6;
+          opacity: 1;
         `)};
 `
 

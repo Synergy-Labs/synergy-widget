@@ -36,7 +36,7 @@ const InputColumn = styled(Column)<{ disableHover?: boolean; isWide: boolean }>`
   border-radius: 6px;
   margin-bottom: 0.5rem;
   margin-top: 0.5rem;
-  padding: ${({ isWide }) => (isWide ? '1rem 0' : '1rem 0 1.5rem')};
+  padding: ${({ isWide }) => (isWide ? '0rem 0' : '0rem 0 0rem')};
   position: relative;
   ${({ theme, disableHover }) =>
     !disableHover &&
@@ -133,7 +133,7 @@ export function FieldWrapper({
       className={className}
     >
       <Row pad={1 /* rem */}>
-        <ThemedText.Subhead2 color={'secondary'}>{subheader}</ThemedText.Subhead2>
+        <ThemedText.Subhead2 color={'secondary'}></ThemedText.Subhead2>
       </Row>
       <TokenInput
         ref={setInput}
@@ -149,7 +149,7 @@ export function FieldWrapper({
         <ThemedText.Body2 color="secondary" userSelect>
           <Row>
             <USDC isLoading={isRouteLoading}>
-              {usdc && `${formatCurrencyAmount(usdc, NumberType.FiatTokenQuantity)}`}
+              {/* {usdc && `${formatCurrencyAmount(usdc, NumberType.FiatTokenQuantity)}`} */}
               <PriceImpactRow
                 impact={fiatValueChange}
                 tooltipText={t`The estimated difference between the USD values of input and output amounts.`}

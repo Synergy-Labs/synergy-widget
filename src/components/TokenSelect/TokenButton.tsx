@@ -14,7 +14,7 @@ const StyledTokenButton = styled(Button)<{ approved?: boolean }>`
   border: 1px solid #0be0fd;
   border-radius: ${({ theme }) => theme.borderRadius.medium}rem;
   min-height: 2rem;
-  padding: 0.25rem 0.25rem 0.25rem 0.25rem;
+  padding: 0.25rem 0.5rem 0.25rem 0.5rem;
 
   :enabled {
     transition: none;
@@ -28,7 +28,6 @@ const StyledTokenButton = styled(Button)<{ approved?: boolean }>`
 const TokenButtonRow = styled(Row)<{ empty: boolean }>`
   max-width: 12rem;
   overflow: hidden;
-  padding-left: ${({ empty }) => empty && 0.5}rem;
 
   width: max-content;
   img {
@@ -52,18 +51,21 @@ export default function TokenButton({ value, approved, disabled, onClick }: Toke
       disabled={disabled}
       data-testid="token-select"
     >
-      <TokenButtonRow empty={!value} flex gap={0.4} flow="nowrap">
+      <TokenButtonRow empty={!value} flex gap={0.2} flow="nowrap">
         {value ? (
           <>
             <Logo currency={value} symbol={value.symbol} />
-            <ThemedText.ButtonLarge color={'currentColor'}>
-              <span>{value.symbol}</span>
+            <ThemedText.ButtonLarge
+              color={'onAccent'}
+              style={{ maxWidth: '10rem', fontSize: '12px', textOverflow: 'ellipsis', overflow: 'hidden' }}
+            >
+              <Trans>{value.symbol}</Trans>
             </ThemedText.ButtonLarge>
           </>
         ) : (
           <ThemedText.ButtonLarge
             color={'onAccent'}
-            style={{ maxWidth: '10rem', textOverflow: 'ellipsis', overflow: 'hidden' }}
+            style={{ maxWidth: '10rem', fontSize: '12px', textOverflow: 'ellipsis', overflow: 'hidden' }}
           >
             <Trans>Select token</Trans>
           </ThemedText.ButtonLarge>

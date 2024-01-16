@@ -16,7 +16,7 @@ import RouterPreferenceToggle from './RouterPreferenceToggle'
 import TransactionTtlInput from './TransactionTtlInput'
 
 const SettingsColumn = styled(Column)`
-  margin: 0.5rem 0.25rem;
+  margin: 0 auto;
 `
 
 export function SettingsMenu() {

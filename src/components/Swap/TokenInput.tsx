@@ -18,7 +18,8 @@ const TokenInputRow = styled(Row)`
 
 const ValueInput = styled(DecimalInput)`
   color: ${({ theme }) => theme.primary};
-
+  font-size: 20px;
+  font-weight: 300;
   ${loadingTransitionCss}
 `
 

@@ -21,8 +21,8 @@ import WidgetWrapper from './WidgetWrapper'
 
 export const DialogWrapper = styled.div`
   border-radius: ${({ theme }) => theme.borderRadius.large}rem;
-  height: 100%;
   left: 0;
+  min-height: 100%;
   padding: 0.5rem;
   position: absolute;
   top: 0;

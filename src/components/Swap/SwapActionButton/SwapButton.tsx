@@ -109,9 +109,19 @@ export default function SwapButton({ disabled }: { disabled: boolean }) {
 
   return (
     <>
-      <ActionButton color={color} onClick={onClick} disabled={disabled}>
-        {missingToken ? <Trans>Select token</Trans> : <Trans>Review swap</Trans>}
-      </ActionButton>
+      <div style={{ marginTop: '50px', color: 'white' }}>
+        <ActionButton onClick={onClick} disabled={disabled}>
+          {missingToken ? (
+            <Trans>
+              <span style={{ fontWeight: 400, color: 'white' }}>Select token</span>
+            </Trans>
+          ) : (
+            <Trans>
+              <span style={{ fontWeight: 400, color: 'white' }}>Review swap</span>
+            </Trans>
+          )}
+        </ActionButton>
+      </div>
       {trade && (
         <ResponsiveDialog open={open} setOpen={setOpen}>
           <SummaryDialog

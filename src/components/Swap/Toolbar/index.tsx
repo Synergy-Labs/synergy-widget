@@ -25,8 +25,8 @@ const StyledExpando = styled(Expando)`
 
 const COLLAPSED_TOOLBAR_HEIGHT_REM = 3
 
-const ToolbarRow = styled(Row)<{ isExpandable?: true }>`
-  cursor: ${({ isExpandable }) => isExpandable && 'pointer'};
+const ToolbarRow = styled(Row) <{ isExpandable?: true }>`
+  cursor: ${({ isExpandable }) => isExpandable && 'pointer'}
   flex-wrap: nowrap;
   gap: 0.5rem;
   height: ${COLLAPSED_TOOLBAR_HEIGHT_REM}rem;
@@ -127,9 +127,9 @@ function CaptionRow() {
         value: impact?.percent ? formatPriceImpact(impact.percent) : '-',
         valueTooltip: impact?.warning
           ? {
-              icon: AlertTriangle,
-              content: <Caption.PriceImpactWarningTooltipContent />,
-            }
+            icon: AlertTriangle,
+            content: <Caption.PriceImpactWarningTooltipContent />,
+          }
           : undefined,
       },
       {
@@ -143,8 +143,8 @@ function CaptionRow() {
         value: trade ? `${formatCurrencyAmount(trade?.outputAmount)} ${currencySymbol}` : '-',
         nameTooltip: trade
           ? {
-              content: t`The amount you expect to receive at the current market price. You may receive less or more if the market price changes while your transaction is pending.`,
-            }
+            content: t`The amount you expect to receive at the current market price. You may receive less or more if the market price changes while your transaction is pending.`,
+          }
           : undefined,
       },
     ]
@@ -196,7 +196,9 @@ function ToolbarActionButton() {
   if (insufficientBalance) {
     return (
       <ActionButton disabled>
-        <Trans>Insufficient {inputCurrency?.symbol} balance</Trans>
+        <Trans>
+          <span style={{ fontWeight: 400 }}>Insufficient {inputCurrency?.symbol} balance</span>
+        </Trans>
       </ActionButton>
     )
   }
@@ -204,7 +206,9 @@ function ToolbarActionButton() {
   if (hasValidInputs && (state === TradeState.NO_ROUTE_FOUND || (trade && !trade.swaps))) {
     return (
       <ActionButton disabled>
-        <Trans>Insufficient liquidity</Trans>
+        <Trans>
+          <span style={{ fontWeight: 400 }}>Insufficient liquidity</span>
+        </Trans>
       </ActionButton>
     )
   }
@@ -213,10 +217,12 @@ function ToolbarActionButton() {
 
 function Toolbar() {
   return (
-    <>
+    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: '10rem', }}>
       <CaptionRow />
-      <ToolbarActionButton />
-    </>
+      <div style={{ marginTop: 'auto'}}>
+        <ToolbarActionButton />
+      </div>
+    </div>
   )
 }
 
