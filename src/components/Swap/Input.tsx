@@ -146,31 +146,33 @@ export function FieldWrapper({
         onChangeInput={updateAmount}
         onChangeCurrency={updateCurrency}
       >
-        <ThemedText.Body2 color="secondary" userSelect>
-          <Row>
-            <USDC isLoading={isRouteLoading}>
-              {/* {usdc && `${formatCurrencyAmount(usdc, NumberType.FiatTokenQuantity)}`} */}
-              <PriceImpactRow
-                impact={fiatValueChange}
-                tooltipText={t`The estimated difference between the USD values of input and output amounts.`}
-              />
-            </USDC>
-            {balance && (
-              <Row gap={0.5}>
-                <Balance color="secondary">
-                  <Trans>Balance:</Trans> {formatCurrencyAmount(balance)}
-                </Balance>
-                {maxAmount && (
-                  <TextButton onClick={onClickMax}>
-                    <ThemedText.ButtonSmall>
-                      <Trans>Max</Trans>
-                    </ThemedText.ButtonSmall>
-                  </TextButton>
-                )}
-              </Row>
-            )}
-          </Row>
-        </ThemedText.Body2>
+        <div style={{ marginTop: '-10px', marginBottom: '10px' }}>
+          <ThemedText.Body2 color="secondary" userSelect>
+            <Row>
+              <USDC isLoading={isRouteLoading}>
+                {usdc && `${formatCurrencyAmount(usdc, NumberType.FiatTokenQuantity)}`}
+                <PriceImpactRow
+                  impact={fiatValueChange}
+                  tooltipText={t`The estimated difference between the USD values of input and output amounts.`}
+                />
+              </USDC>
+              {balance && (
+                <Row gap={0.0001}>
+                  <Balance color="secondary">
+                    <Trans>Balance:</Trans> {formatCurrencyAmount(balance)}
+                  </Balance>
+                  {maxAmount && (
+                    <TextButton onClick={onClickMax}>
+                      <ThemedText.ButtonSmall>
+                        <Trans>Max</Trans>
+                      </ThemedText.ButtonSmall>
+                    </TextButton>
+                  )}
+                </Row>
+              )}
+            </Row>
+          </ThemedText.Body2>
+        </div>
       </TokenInput>
     </InputColumn>
   )

@@ -47,7 +47,15 @@ export default function Swap(props: SwapProps) {
   return (
     <div style={{ minHeight: '25rem' }}>
       <SwapInfoProvider>
-        <div style={{ width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+        <div
+          style={{
+            width: '100%',
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            marginTop: '10px',
+          }}
+        >
           <Wallet disabled={props.hideConnectionUI} />
           <Settings />
         </div>
@@ -56,7 +64,7 @@ export default function Swap(props: SwapProps) {
             <Input />
             <ReverseButton />
             <Output />
-            <div style={{height: '100%',}}>
+            <div style={{ height: '100%' }}>
               <Toolbar />
             </div>
             {useBrandedFooter() && <BrandedFooter />}

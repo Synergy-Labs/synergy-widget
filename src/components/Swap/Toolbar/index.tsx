@@ -127,8 +127,8 @@ function CaptionRow() {
         value: impact?.percent ? formatPriceImpact(impact.percent) : '-',
         valueTooltip: impact?.warning
           ? {
-            icon: AlertTriangle,
-            content: <Caption.PriceImpactWarningTooltipContent />,
+              icon: AlertTriangle,
+              content: <Caption.PriceImpactWarningTooltipContent />,
           }
           : undefined,
       },
